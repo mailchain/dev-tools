@@ -2,8 +2,6 @@ FROM ubuntu:latest
 
 LABEL maintainer="robdefeo@gmail.com"
 
-COPY . /
-
 COPY scripts/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
