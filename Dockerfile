@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 LABEL maintainer="robdefeo@gmail.com"
 
-COPY scripts/entrypoint.sh /entrypoint.sh
+COPY . /
 RUN chmod +x /entrypoint.sh
 
 # install base
