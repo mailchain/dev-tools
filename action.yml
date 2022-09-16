@@ -1,4 +1,3 @@
-# action.yml
 name: 'Mailchain dev tools'
 runs:
   using: 'docker'
