@@ -31,16 +31,16 @@ RUN wget https://releases.hashicorp.com/terraform/1.2.9/terraform_1.2.9_linux_am
     && mv terraform /usr/local/bin/
 
 # install swagger
-RUN curl -o /usr/local/bin/swagger -L'#' https://github.com/go-swagger/go-swagger/releases/download/v0.29.0/swagger_linux_amd64 \
-    && chmod +x /usr/local/bin/swagger
+RUN curl -o /usr/bin/swagger -L'#' https://github.com/go-swagger/go-swagger/releases/download/v0.29.0/swagger_linux_amd64 \
+    && chmod +x /usr/bin/swagger
 
 # set go path
 ENV PATH="$PATH:/usr/local/go/bin"
 
 # install protobuf
 RUN curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v21.6/protoc-21.6-linux-x86_64.zip \
-    && unzip -o protoc-21.6-linux-x86_64.zip -d /usr/local bin/protoc \
-    && unzip -o protoc-21.6-linux-x86_64.zip -d /usr/local 'include/*' \
+    && unzip -o protoc-21.6-linux-x86_64.zip -d /usr bin/protoc \
+    && unzip -o protoc-21.6-linux-x86_64.zip -d /usr 'include/*' \
     && go install google.golang.org/protobuf/cmd/protoc-gen-go@v1.26 \
     && go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@v1.1
 
