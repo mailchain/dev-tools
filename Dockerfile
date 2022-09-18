@@ -36,10 +36,13 @@ RUN curl -o /usr/local/bin/swagger -L'#' https://github.com/go-swagger/go-swagge
 
 # install protobuf
 RUN curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v21.6/protoc-21.6-linux-x86_64.zip \
-    && unzip protoc-21.6-linux-x86_64.zip -d $HOME/.local \
-    && export PATH="$PATH:$HOME/.local/bin"
+    && unzip -o protoc-21.6-linux-x86_64.zip -d /usr/local bin/protoc \
+    && unzip -o protoc-21.6-linux-x86_64.zip -d /usr/local 'include/*'
 
 # install nx
 RUN npm install -g nx@14.7.5
+
+ENV PATH "$PATH:/usr/local/go/bin"
+ENV PATH "$PATH:$(go env GOPATH)/bin"
 
 ENTRYPOINT ["/entrypoint.sh"]
