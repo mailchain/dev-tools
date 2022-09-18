@@ -36,8 +36,8 @@ RUN curl -o /usr/local/bin/swagger -L'#' https://github.com/go-swagger/go-swagge
 
 # install protobuf
 RUN curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v21.6/protoc-21.6-linux-x86_64.zip \
-    && unzip protoc-21.6-linux-x86_64.zip -d $HOME/.local && export \
-    PATH="$PATH:$HOME/.local/bin"
+    && unzip protoc-21.6-linux-x86_64.zip -d $HOME/.local \
+    && export PATH="$PATH:$HOME/.local/bin"
 
 # install nx
 RUN npm install -g nx@14.7.5
