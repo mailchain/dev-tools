@@ -50,7 +50,4 @@ RUN npm install -g nx@14.7.5
 # set path permanently
 ENV PATH="$PATH:$(go env GOPATH)/bin"
 
-# create and sign .cache directory inside /node_modules in order not to have permission issue
-RUN mkdir -p node_modules/.cache && chmod -R 777 node_modules/.cache
-
 ENTRYPOINT ["/entrypoint.sh"]
