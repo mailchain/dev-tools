@@ -49,6 +49,7 @@ RUN npm install -g nx@14.7.5
 
 # set path permanently
 ENV PATH="$PATH:/usr/local/go:$HOME/go:$HOME/go/bin"
+ENV PATH="$PATH:/root/go:/root/go/bin"
 ENV PATH="$PATH:$(go env GOPATH)/bin"
 
 ENTRYPOINT ["/entrypoint.sh"]
