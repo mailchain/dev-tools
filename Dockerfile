@@ -10,10 +10,18 @@ RUN echo "Y" | apt update \
     && echo "Y" | apt upgrade \
     && echo "Y" | dpkg --purge --force-depends ca-certificates-java \
     && echo "Y" | apt-get install ca-certificates-java \
+    && echo "Y" | apt-get install apt-transport-https \
+    && echo "Y" | apt-get install ca-certificates \
     && echo "Y" | apt-get install wget curl unzip software-properties-common gnupg2 -y \
     && echo "Y" | apt-get install build-essential \
     && echo "Y" | apt-get install git \
     && echo "Y" | apt-get install openjdk-8-jdk
+
+# install docker
+RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - \
+    && echo "Y" | add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable" \
+    && echo "Y" | apt-cache policy docker-ce \
+    && echo "Y" | apt install docker-ce
 
 # install go
 RUN wget https://dl.google.com/go/go1.17.5.linux-amd64.tar.gz \
