@@ -23,6 +23,11 @@ RUN curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - \
     && echo "Y" | apt-cache policy docker-ce \
     && echo "Y" | apt install docker-ce
 
+# install aws cli
+RUN curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" \
+    && unzip awscliv2.zip \
+    && ./aws/install
+
 # install go
 RUN wget https://dl.google.com/go/go1.17.5.linux-amd64.tar.gz \
     && tar -xvf go1.17.5.linux-amd64.tar.gz \
