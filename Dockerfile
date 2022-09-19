@@ -48,7 +48,7 @@ RUN curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v21.6
 RUN npm install -g nx@14.7.5
 
 # set path permanently
-ENV PATH="$PATH:$HOME/go/bin"
+ENV PATH="$PATH:/usr/local/go:$HOME/go:$HOME/go/bin"
 ENV PATH="$PATH:$(go env GOPATH)/bin"
 
 ENTRYPOINT ["/entrypoint.sh"]
