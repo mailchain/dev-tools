@@ -5,14 +5,10 @@ LABEL maintainer="robdefeo@gmail.com"
 COPY scripts/entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
-RUN echo "Y" | apt update \
-    && echo "Y" | apt upgrade
-
-# install sudo
-RUN su - && apt-get install sudo -y
-
 # install base
-RUN echo "Y" | dpkg --purge --force-depends ca-certificates-java \
+RUN echo "Y" | apt update \
+    && echo "Y" | apt upgrade \
+    && echo "Y" | dpkg --purge --force-depends ca-certificates-java \
     && echo "Y" | apt-get install ca-certificates-java \
     && echo "Y" | apt-get install wget curl unzip software-properties-common gnupg2 -y \
     && echo "Y" | apt-get install build-essential \
