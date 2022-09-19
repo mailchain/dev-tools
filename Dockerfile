@@ -36,6 +36,7 @@ RUN curl -o /usr/local/bin/swagger -L'#' https://github.com/go-swagger/go-swagge
 
 # set go path
 ENV PATH="$PATH:/usr/local/go/bin"
+ENV PATH="$PATH:$HOME/go/bin"
 
 # install protobuf
 RUN curl -LO https://github.com/protocolbuffers/protobuf/releases/download/v21.6/protoc-21.6-linux-x86_64.zip \
