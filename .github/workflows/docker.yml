@@ -25,7 +25,7 @@ jobs:
         name: Build and push protobuf
         uses: docker/build-push-action@v3
         with:
-          file: {context}/ProtobufDockerFile
+          file: ./ProtobufDockerFile
           push: true
           tags: mailchain/protobuf:latest
       -
